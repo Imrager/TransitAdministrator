@@ -9,28 +9,36 @@ app.use(methodOveride('_method'))
 app.set('view engine', 'hbs');
 
 app.get("/cards", (req, res) => {
-    cardApi.getCards()
-      .then(cards => {
-        res.render('card/cards', { cards });
-      });
+  cardApi.getCards()
+    .then(cards => {
+      res.render('card/cards', { cards });
     });
+});
 
 app.get("/cards/:id", (req, res) => {
-    cardApi.getCard(req.params.id)
-      .then(card => {
-        res.render("card/card", { card })
-      });
-  });
+  cardApi.getCard(req.params.id)
+    .then(card => {
+      res.render("card/card", { card })
+    });
+});
 
 app.post("/cards", (req, res) => {
-    cardApi.createCard(req.body)
-      .then(() => {
-        res.render("card/created");
-      });
-  });
+  cardApi.createCard(req.body)
+    .then(() => {
+      res.render("card/created");
+    });
+});
+
+
+app.delete("/cards/:id", (req, res) => {
+  cardApi.deleteCard(req.params.id)
+    .then(() => {
+      res.render("card/deleteWarn");
+    });
+});
 
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
-    console.log(`App is listening on PORT ${PORT}`)
+  console.log(`App is listening on PORT ${PORT}`)
 });

@@ -1,8 +1,10 @@
 const mongoose = require('./connection.js');
+const ObjectId = mongoose.Schema.Types.ObjectId
 
 let CardSchema = mongoose.Schema({
   name: String,
-  balance: Number
+  balance: Number,
+  userId: ObjectId
 });
 
 let CardCollection = mongoose.model('Card', CardSchema);
@@ -19,7 +21,7 @@ function getCard(cardId) {
     return CardCollection.findById(cardId);
 }
 function deleteCard(cardId) {
-    return AccountCollection.deleteOne({_id: cardId});
+    return CardCollection.deleteOne({_id: cardId});
 }
 
 module.exports = {
