@@ -26,7 +26,7 @@ function deleteUser(userId) {
 
 module.exports = {
   createUser,
-  getUser,
+  getUsers,
   getUser,
   deleteUser
 }
