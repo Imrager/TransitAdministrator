@@ -2,8 +2,7 @@ const mongoose = require('./connection.js');
 
 let CardSchema = mongoose.Schema({
   name: String,
-  balance: Number,
-  _id: String
+  balance: Number
 });
 
 let CardCollection = mongoose.model('Card', CardSchema);

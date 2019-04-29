@@ -13,7 +13,14 @@ app.get("/cards", (req, res) => {
       .then(cards => {
         res.render('card/cards', { cards });
       });
-});
+    });
+
+app.get("/cards/:id", (req, res) => {
+    cardApi.getCard(req.params.id)
+      .then(card => {
+        res.render("card/card", { card })
+      });
+  });
 
 app.post("/cards", (req, res) => {
     cardApi.createCard(req.body)
