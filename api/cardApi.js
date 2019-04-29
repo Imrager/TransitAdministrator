@@ -3,7 +3,7 @@ const mongoose = require('./connection.js');
 let CardSchema = mongoose.Schema({
   name: String,
   balance: Number,
-  isActive: Boolean
+  _id: String
 });
 
 let CardCollection = mongoose.model('Card', CardSchema);
