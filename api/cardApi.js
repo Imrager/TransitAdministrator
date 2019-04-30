@@ -24,8 +24,8 @@ function deleteCard(cardId) {
     return CardCollection.deleteOne({_id: cardId});
 }
 
-function getCardByAccountId(userId){
-    return AccountCollection.find({ userId: userId })
+function getCardByAccountId(userid){
+    return CardCollection.find({ userId: userid })
 }
 
 module.exports = {

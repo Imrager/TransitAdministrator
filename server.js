@@ -33,9 +33,9 @@ app.get("/admin/:id", (req, res) => {
   adminApi.getAdmin(req.params.id)
     .then(admin => {
       userApi.getUsers()
-      .then(users => {
-        res.render('admin/admin', { users , admin });
-      });;
+        .then(users => {
+          res.render('admin/admin', { users, admin });
+        });;
     });
 });
 
@@ -57,13 +57,27 @@ app.delete("/admin/:id", (req, res) => {
 
 
 // User
+app.post("/user/:id", (req, res) => {
+  cardApi.createCard({
+    name: req.body.name,
+    balance: req.body.balance,
+    userId: req.params.id
+  })
+    .then(() => {
+      res.render("card/created");
+    });
+});
 
 app.get("/user/:id", (req, res) => {
   userApi.getUser(req.params.id)
     .then(user => {
-      res.render("user/user", { user })
+      cardApi.getCardByAccountId(req.params.id)
+        .then(card => {
+          res.render('user/user', { card , user });
+        })
     });
 });
+
 
 // Card
 
