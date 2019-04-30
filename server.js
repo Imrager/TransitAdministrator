@@ -56,6 +56,16 @@ app.delete("/admin/:id", (req, res) => {
 });
 
 
+// User
+
+app.get("/user/:id", (req, res) => {
+  userApi.getUser(req.params.id)
+    .then(user => {
+      res.render("user/user", { user })
+    });
+});
+
+// Card
 
 
 app.get("/cards", (req, res) => {
@@ -77,12 +87,7 @@ app.get("/cards/:id", (req, res) => {
       res.render("card/card", { card })
     });
 });
-app.get("/users/:id", (req, res) => {
-  userApi.getUser(req.params.id)
-    .then(user => {
-      res.render("user/user", { user })
-    });
-});
+
 
 app.post("/cards", (req, res) => {
   cardApi.createCard(req.body)
