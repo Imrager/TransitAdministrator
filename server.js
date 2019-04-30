@@ -3,6 +3,7 @@ const app = express()
 const methodOveride = require('method-override')
 const cardApi = require('./api/cardApi')
 const userApi = require('./api/userApi')
+const adminApi = require('./api/adminApi')
 
 app.use(express.urlencoded())
 app.use(methodOveride('_method'))
@@ -15,6 +16,31 @@ app.get("/", (req, res) => {
   adminApi.getAdmins()
     .then(admin => {
       res.render('admin/headadmin', { admin });
+    });
+});
+
+app.post("/", (req, res) => {
+  adminApi.createAdmin(req.body)
+    .then(() => {
+      res.render("admin/createadmin");
+    });
+});
+
+app.get("/admin/:id", (req, res) => {
+  adminApi.getAdmin(req.params.id)
+    .then(admin => {
+      userApi.getUsers()
+      .then(users => {
+        res.render('admin/admin', { users }, { admin });
+      });;
+    });
+});
+
+
+app.delete("/admin/:id", (req, res) => {
+  adminApi.deleteAdmin(req.params.id)
+    .then(() => {
+      res.render("admin/delete");
     });
 });
 
