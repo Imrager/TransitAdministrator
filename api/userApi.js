@@ -2,11 +2,11 @@ const mongoose = require('./connection.js');
 
 let UserSchema = mongoose.Schema({
     name: String,
-    cards: [{
-        type:objectId,
-        ref:Card
-    }]
+    cards: [
+    ]
   });
+
+let UserCollection = mongoose.model('User', UserSchema);
 
 function createUser(newUser) {
     return UserCollection.create(newUser);

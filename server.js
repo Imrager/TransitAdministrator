@@ -15,6 +15,12 @@ app.get("/cards", (req, res) => {
       res.render('card/cards', { cards });
     });
 });
+app.get("/users", (req, res) => {
+  userApi.getUsers()
+    .then(users => {
+      res.render('user/users', { users });
+    });
+});
 
 app.get("/cards/:id", (req, res) => {
   cardApi.getCard(req.params.id)
