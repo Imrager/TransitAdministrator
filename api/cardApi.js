@@ -24,6 +24,10 @@ function deleteCard(cardId) {
     return CardCollection.deleteOne({_id: cardId});
 }
 
+function getCardByAccountId(userId){
+    return AccountCollection.find({ userId: uId })
+}
+
 module.exports = {
     createCard,
     getCards,

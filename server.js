@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const methodOveride = require('method-override')
 const cardApi = require('./api/cardApi')
+const userApi = require('./api/userApi')
 
 app.use(express.urlencoded())
 app.use(methodOveride('_method'))
@@ -26,6 +27,12 @@ app.post("/cards", (req, res) => {
   cardApi.createCard(req.body)
     .then(() => {
       res.render("card/created");
+    });
+});
+app.post("/users", (req, res) => {
+  userApi.createUser(req.body)
+    .then(() => {
+      res.render("user/created");
     });
 });
 
