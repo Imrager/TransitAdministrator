@@ -25,13 +25,14 @@ function deleteCard(cardId) {
 }
 
 function getCardByAccountId(userId){
-    return AccountCollection.find({ userId: uId })
+    return AccountCollection.find({ userId: userId })
 }
 
 module.exports = {
     createCard,
     getCards,
     getCard,
-    deleteCard
+    deleteCard,
+    getCardByAccountId
 }
   

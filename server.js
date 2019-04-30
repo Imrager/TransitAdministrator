@@ -9,6 +9,18 @@ app.use(methodOveride('_method'))
 
 app.set('view engine', 'hbs');
 
+// Admin
+
+app.get("/", (req, res) => {
+  adminApi.getAdmins()
+    .then(admin => {
+      res.render('admin/headadmin', { admin });
+    });
+});
+
+
+
+
 app.get("/cards", (req, res) => {
   cardApi.getCards()
     .then(cards => {
@@ -26,6 +38,12 @@ app.get("/cards/:id", (req, res) => {
   cardApi.getCard(req.params.id)
     .then(card => {
       res.render("card/card", { card })
+    });
+});
+app.get("/users/:id", (req, res) => {
+  userApi.getUser(req.params.id)
+    .then(user => {
+      res.render("user/user", { user })
     });
 });
 
