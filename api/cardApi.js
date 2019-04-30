@@ -28,11 +28,17 @@ function getCardByAccountId(userid){
     return CardCollection.find({ userId: userid })
 }
 
+function updateCard(cardId, card) {
+    return AccountCollection.updateOne({ _id: cardId}, {...card});
+}
+  
+
 module.exports = {
     createCard,
     getCards,
     getCard,
     deleteCard,
-    getCardByAccountId
+    getCardByAccountId,
+    updateCard
 }
   

@@ -57,6 +57,8 @@ app.delete("/admin/:id", (req, res) => {
 
 
 // User
+
+// create new card in user page
 app.post("/user/:id", (req, res) => {
   cardApi.createCard({
     name: req.body.name,
@@ -81,36 +83,12 @@ app.get("/user/:id", (req, res) => {
 
 // Card
 
-
-app.get("/cards", (req, res) => {
-  cardApi.getCards()
-    .then(cards => {
-      res.render('card/cards', { cards });
-    });
-});
-app.get("/users", (req, res) => {
-  userApi.getUsers()
-    .then(users => {
-      res.render('user/users', { users });
-    });
-});
-
-app.get("/cards/:id", (req, res) => {
+app.get("/card/:id", (req, res) => {
   cardApi.getCard(req.params.id)
     .then(card => {
-      res.render("card/card", { card })
+      res.render('card/card', { card });
     });
 });
-
-
-app.post("/cards", (req, res) => {
-  cardApi.createCard(req.body)
-    .then(() => {
-      res.render("card/created");
-    });
-});
-
-
 
 app.delete("/cards/:id", (req, res) => {
   cardApi.deleteCard(req.params.id)
@@ -118,6 +96,18 @@ app.delete("/cards/:id", (req, res) => {
       res.render("card/deleteWarn");
     });
 });
+
+app.put("/cards/:id", (req, res) => {
+  cardApi.updateAccount(req.params.id, req.body)
+    .then(() => {
+      res.render("accounts/updated");
+    });
+});
+
+
+
+
+
 
 const PORT = process.env.PORT || 3000
 
