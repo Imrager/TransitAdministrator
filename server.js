@@ -12,6 +12,7 @@ app.set('view engine', 'hbs');
 
 // Admin
 
+// Shows all admins to head Admin
 app.get("/", (req, res) => {
   adminApi.getAdmins()
     .then(admin => {
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
     });
 });
 
+// Create new admin from Head Admin
 app.post("/", (req, res) => {
   adminApi.createAdmin(req.body)
     .then(() => {
@@ -26,17 +28,26 @@ app.post("/", (req, res) => {
     });
 });
 
+// Admin page shows all users
 app.get("/admin/:id", (req, res) => {
   adminApi.getAdmin(req.params.id)
     .then(admin => {
       userApi.getUsers()
       .then(users => {
-        res.render('admin/admin', { users }, { admin });
+        res.render('admin/admin', { users , admin });
       });;
     });
 });
 
+// Admin can create new Users
+app.post("/admin/:id", (req, res) => {
+  userApi.createUser(req.body)
+    .then(() => {
+      res.render("user/created");
+    });
+});
 
+// Head Admin can delete admins
 app.delete("/admin/:id", (req, res) => {
   adminApi.deleteAdmin(req.params.id)
     .then(() => {
@@ -79,12 +90,7 @@ app.post("/cards", (req, res) => {
       res.render("card/created");
     });
 });
-app.post("/users", (req, res) => {
-  userApi.createUser(req.body)
-    .then(() => {
-      res.render("user/created");
-    });
-});
+
 
 
 app.delete("/cards/:id", (req, res) => {
