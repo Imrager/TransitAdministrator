@@ -83,3 +83,11 @@ footer{
 .addAdmin{
     padding-left: 10vw;
 }
+.load{
+    display:flex;
+    justify-content: center;
+}
+.loadTitle{
+    display:none;
+    justify-content: center;
+}
