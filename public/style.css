@@ -2,12 +2,33 @@ body{
     height: 100vh;
 }
 
-header{
-    height: 33vh;
-    border: solid blue 5px;
+.header{
+    height: 20%;
+    background-color: rgb(86, 86, 226);
+    display: flex;
+    justify-content: space-between;
 }
-
+.logo{
+    display: flex;
+    margin-left:2%;
+    margin-top:2%;
+}
 h1{
-    color: gray;
+    margin-top:2%;
+}
+#transit{
+    background-color: white;
+    border-color: grey;
+    border-radius: 5px;
+    padding: 5px;
     
+}
+.title{
+    margin-right: 2%;
+}
+.section{
+    height: 60%;
+    display: flex;
+    background-color: grey;
+
 }
