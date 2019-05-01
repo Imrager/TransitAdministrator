@@ -4,7 +4,7 @@ body{
 
 .header{
     height: 20%;
-    background-color: rgb(86, 86, 226);
+    background-color: rgb(241, 194, 68);
     display: flex;
     justify-content: space-between;
 }
@@ -12,6 +12,10 @@ body{
     display: flex;
     margin-left:2%;
     margin-top:2%;
+    
+}
+h2{
+    margin: 1%;
 }
 h1{
     margin-top:2%;
@@ -29,6 +33,45 @@ h1{
 .section{
     height: 60%;
     display: flex;
-    background-color: grey;
+    background-color: rgb(59, 158, 215);
+    padding-left: 10%;
+    padding-top: 4%;
+}
+.sectionUser{
+    height: 60%;
+    background-color: rgb(59, 158, 215);
+    padding-left: 10%;
+    padding-top: 4%;
+}
+ul{
+    list-style: none;
+}
+.admin{
+    display:block;
 
+}
+.adminTitle{
+    width: 100%;
+    margin-right: 8vw;
+}
+section{
+    display:flex;
+}
+.addUser{
+    padding-left: 8vw;
+}
+/* link decoration */
+a:link{
+    color: black;
+}
+a:visited{
+    color: black;
+}
+a:hover{
+    color: rgb(90, 86, 86);
+}
+/* footer */
+footer{
+    height: 20%;
+    background-color: rgb(237, 148, 60);
 }
