@@ -1,7 +1,18 @@
-<h1>Card: {{ card.name }}</h1>
+<div class="header">
+  <div class="logo">
+    <img src='/public/images/subwayNtrain.png' width='75px' height='75px' id='transit'>
+    <h2>Transit System</h2>
+  </div>
+  <div class="admin">
+    <h1 class="headTitle" class="title">Cards- {{ card.name }} Card </h1>
+  </div>
+</div>
+<div class="section">
+<div class="cardInfo">
+<h1>{{ card.name }} Card</h1>
 <h3>Balance: ${{ card.balance }}</h3>
 <h3>Card Id: {{ card._id }}</h3>
-
+</div>
 <form action="/cards/{{card._id}}?_method=PUT" method="POST">
 
   <label for="name">Name</label>
@@ -12,10 +23,11 @@
   
   <input type="submit" value="Update" />
 </form>
-
+<div class="deleteCard">
 <form action="/cards/{{card._id}}?_method=DELETE" method="POST">
   <input type="submit" value="Delete">
 </form>
-
+</div>
+</div>
 <a href="javascript:history.go(-1)">Go Back</a>
 {{!-- got from: https://stackoverflow.com/questions/8814472/how-to-make-an-html-back-link --}}

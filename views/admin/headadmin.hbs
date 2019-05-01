@@ -1,13 +1,28 @@
-<h1>Head admin</h1>
-<form method="POST" action="/">
-  <label for="name">Adim Name</label>
-  <input type="text" name="name" />
-  <input type="submit" value="Add Admin" />
-</form>
-<ul>
-{{#each admin}}
+<div class="header">
+  <div class="logo">
+    <img src='/public/images/subwayNtrain.png' width='75px' height='75px' id='transit'>
+    <h2>Transit System</h2>
+  </div>
+  <div class="admin">
+    <h1 class="headTitle" class="title">Head Admin</h1>
+  </div>
+</div>
+<div class="section">
+  <ul>
+    <h1>Admins</h1>
+    {{#each admin}}
     <a href='/admin/{{_id}}'>{{ name }}</a><br>
     {{ _id }}
     <br>
-{{/each}}
-</ul>
+    {{/each}}
+  </ul>
+  <div class="addAdmin">
+  <h1>Add Admin</h1>
+  <form method="POST" action="/">
+    <label for="name">Admin Name</label>
+    <input type="text" name="name" />
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+</div>
+<footer></footer>

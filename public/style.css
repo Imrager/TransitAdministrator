@@ -54,6 +54,11 @@ ul{
     width: 100%;
     margin-right: 8vw;
 }
+.headTitle{
+    margin-top: 2.5vh;
+    width: 100%;
+    margin-right: 8vw;
+}
 section{
     display:flex;
 }
@@ -74,4 +79,7 @@ a:hover{
 footer{
     height: 20%;
     background-color: rgb(237, 148, 60);
+}
+.addAdmin{
+    padding-left: 10vw;
 }
