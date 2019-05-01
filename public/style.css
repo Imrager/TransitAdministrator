@@ -84,10 +84,12 @@ footer{
     padding-left: 10vw;
 }
 .load{
+    margin-top: 20;
     display:flex;
     justify-content: center;
 }
 .loadTitle{
-    display:none;
+    display:flex;
     justify-content: center;
+    opacity: 1;
 }
