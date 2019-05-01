@@ -1,0 +1,13 @@
+body{
+    height: 100vh;
+}
+
+header{
+    height: 33vh;
+    border: solid blue 5px;
+}
+
+h1{
+    color: gray;
+    
+}

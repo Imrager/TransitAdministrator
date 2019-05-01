@@ -1,0 +1,15 @@
+<h1>Users</h1>
+
+<form method="POST" action="/users">
+  <label for="name">User Name</label>
+  <input type="text" name="name" />
+  <input type="submit" value="Add User" />
+</form>
+
+<ul>
+{{#each users }}
+    <a href='/cards'><li>{{ name }}<br></a>
+    {{ _id }}
+    </li>
+{{/each}}
+</ul>
