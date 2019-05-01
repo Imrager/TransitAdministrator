@@ -29,7 +29,7 @@ function getCardByAccountId(userid){
 }
 
 function updateCard(cardId, card) {
-    return AccountCollection.updateOne({ _id: cardId}, {...card});
+    return CardCollection.updateOne({ _id: cardId}, {...card});
 }
   
 
