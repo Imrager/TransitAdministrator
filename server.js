@@ -1,10 +1,12 @@
 const express = require('express')
+const path = require('path')
 const app = express()
 const methodOveride = require('method-override')
 const cardApi = require('./api/cardApi')
 const userApi = require('./api/userApi')
 const adminApi = require('./api/adminApi')
 
+app.use('/public', express.static("public"))
 app.use(express.urlencoded())
 app.use(methodOveride('_method'))
 
@@ -80,6 +82,13 @@ app.get("/user/:id", (req, res) => {
     });
 });
 
+app.delete("/user/:id", (req, res) => {
+  userApi.deleteUser(req.params.id)
+    .then(() => {
+      res.render("user/delete");
+    });
+});
+userApi.deleteUser('5cc9b3c3011727dbcdef18b1')
 
 // Card
 
@@ -97,10 +106,11 @@ app.delete("/cards/:id", (req, res) => {
     });
 });
 
+
 app.put("/cards/:id", (req, res) => {
-  cardApi.updateAccount(req.params.id, req.body)
+  cardApi.updateCard(req.params.id, req.body)
     .then(() => {
-      res.render("accounts/updated");
+      res.render("card/update");
     });
 });
 
