@@ -1,35 +1,40 @@
 <div class="header">
   <div class="logo">
-  <img src='/public/images/subwayNtrain.png' width='75px' height='75px' id='transit'>
-  <h2>Transit </h2>
+    <img src='/public/images/subwayNtrain.png' width='75px' height='75px' id='transit'>
+    <h2>Transit System</h2>
   </div>
-  <h1 class="title">Admin: {{admin.name}}</h1>
+  <div class="admin">
+    <h1 class="adminTitle" class="title">Admin: {{admin.name}}</h1>
+
+    <form action="/admin/{{admin._id}}?_method=DELETE" method="POST">
+      <input type="submit" value="Delete Admin">
+    </form>
+  </div>
 </div>
 <div class="section">
 
   <section>
-    <form action="/admin/{{admin._id}}?_method=DELETE" method="POST">
-      <input type="submit" value="Delete Admin">
-    </form>
-    <br>
-
-    <form method="POST" action="/admin/{{ admin._id }}">
-      <label for="name">User Name</label>
-      <input type="text" name="name" />
-      <input type="submit" value="Add User" />
-    </form>
-
+    <div class="users">
+    <h1>Users</h1>
     <ul>
       {{#each users }}
       <a href='/user/{{ _id }}'>
-        <li>{{ name }}<br>
+        <li>Username: {{ name }}<br>
       </a>
-      {{ _id }}
+      Id: {{ _id }}
       </li>
       {{/each}}
     </ul>
+    </div>
+    <div class="addUser">
+      <form method="POST" action="/admin/{{ admin._id }}">
+        <label for="name">User Name</label>
+        <input type="text" name="name" />
+        <input type="submit" value="Add User" />
+      </form>
+    </div>
   </section>
 </div>
-
-
-<a href="/">Back to Admins</a>
+<footer>
+  <a href="/">Back to Admins</a>
+</footer>
