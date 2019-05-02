@@ -15,10 +15,13 @@ Javascript, CSS, NodeJs, Express, Handlebars, MongoDb, Mongoose
 Created an app that transit administrator can use to manipulate their user information(i.e Cards, Card Balances).
 
 ## Wireframe:
+![Wireframe]()
 
 ## ERD:
-![ERD](https://github.com/Imrager/TransitAdministrator/blob/master/public/images/ERD1.jpg){:height="50%" width="50%"}
+![ERD](https://github.com/Imrager/TransitAdministrator/blob/master/public/images/ERD1.jpg)
 
-![ERD](https://github.com/Imrager/TransitAdministrator/blob/master/public/images/ERD2.jpg | width=100) 
+![ERD](https://github.com/Imrager/TransitAdministrator/blob/master/public/images/ERD2.jpg) 
 
-![ERD](https://github.com/Imrager/TransitAdministrator/blob/master/public/images/ERD3.jpg | width=100) 
+![ERD](https://github.com/Imrager/TransitAdministrator/blob/master/public/images/ERD3.jpg) 
+
+
